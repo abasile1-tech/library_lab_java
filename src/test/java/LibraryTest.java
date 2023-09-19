@@ -19,9 +19,6 @@ public class LibraryTest {
         book3 = new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy");
         book4 = new Book("A Brief History of Time", "Stepen Hawking", "Science");
         library = new Library("Blackhall Library", 3);
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
     }
 
     @Test
