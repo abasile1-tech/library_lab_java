@@ -1,4 +1,5 @@
 import org.example.Book;
+import org.example.Borrower;
 import org.example.Library;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,8 @@ public class LibraryTest {
 
     private Library library;
 
+    private Borrower borrower;
+
     @Before
     public void before() {
         book1 = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", "Fantasy");
@@ -19,6 +22,7 @@ public class LibraryTest {
         book3 = new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy");
         book4 = new Book("A Brief History of Time", "Stepen Hawking", "Science");
         library = new Library("Blackhall Library", 3);
+        borrower = new Borrower("John");
     }
 
     @Test
@@ -43,5 +47,11 @@ public class LibraryTest {
         assertEquals(3, library.countBooks());
     }
 
-
+    @Test
+    public void canLendBook() {
+        library.addBook(book1);
+        library.loanBook(book1, borrower);
+        assertEquals(0, library.countBooks());
+        assertEquals(1, borrower.bookCount());
+    }
 }
